@@ -49,6 +49,7 @@ const DishList = ({foodCategory,switchStatus,searchQuery,setSelectedDishesList,t
           setDishesList(selectedData || []);
         } else if (selectedDishesList?.length === 0) {
           setDishesList(dishes);
+          
         }
       }, [tabCategory, selectedDishesList]);
 
