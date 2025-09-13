@@ -22,6 +22,7 @@ const App = () => {
   useEffect(() => {
     if (selectedDishesList?.length === 0) {
       setTabCategory("");
+      
     }
   }, [selectedDishesList]);
 
