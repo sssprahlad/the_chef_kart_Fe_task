@@ -1,15 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Filter from './components/Filters/Filter';
-import DishList from './components/DishList/DishList';
 import { useEffect, useState } from 'react';
-import Summary from './components/Summar/Summary';
 import OrderItems from './components/OrderItems/OrderItems';
+import MainContainer from './components/MainContainer/MainContainer';
 
 const App = () => {
-  const [foodCategory, setFoodCategory] = useState([]);
-  const [switchStatus, setSwitchStatus] = useState();
-  const [searchQuery, setSearchQuery] = useState();
+  const [foodCategory, setFoodCategory] = useState('');
+  const [switchStatus, setSwitchStatus] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedDishesList, setSelectedDishesList] = useState([]);
   const [count, setCount] = useState({
     starter: 0,
@@ -17,12 +15,11 @@ const App = () => {
     desert: 0,
     sides: 0
   });
-  const [tabCategory, setTabCategory] = useState();
+  const [tabCategory, setTabCategory] = useState('');
 
   useEffect(() => {
     if (selectedDishesList?.length === 0) {
       setTabCategory("");
-      
     }
   }, [selectedDishesList]);
 
@@ -33,32 +30,41 @@ const App = () => {
           <Route 
             path="/" 
             element={
-              <>
-                <Filter 
-                  setFoodCategory={setFoodCategory} 
-                  setSwitchStatus={setSwitchStatus} 
-                  setSearchQuery={setSearchQuery} 
-                  searchQuery={searchQuery} 
-                  setCount={setCount} 
-                  count={count} 
-                  selectedDishesList={selectedDishesList}  
-                  setTabCategory={setTabCategory} 
-                  tabCategory={tabCategory} 
-                />
-                <DishList 
-                  foodCategory={foodCategory} 
-                  switchStatus={switchStatus} 
-                  searchQuery={searchQuery} 
-                  setSelectedDishesList={setSelectedDishesList} 
-                  count={count} 
-                  selectedDishesList={selectedDishesList} 
-                  tabCategory={tabCategory}
-                />
-                <Summary selectedDishesList={selectedDishesList} />
-              </>
+              <MainContainer 
+                foodCategory={foodCategory}
+                setFoodCategory={setFoodCategory}
+                switchStatus={switchStatus}
+                setSwitchStatus={setSwitchStatus}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                selectedDishesList={selectedDishesList}
+                setSelectedDishesList={setSelectedDishesList}
+                count={count}
+                setCount={setCount}
+                tabCategory={tabCategory}
+                setTabCategory={setTabCategory}
+              />
             } 
           />
-          <Route path="/summary" element={<OrderItems />} />
+          <Route 
+            path="/summary" 
+            element={
+              <OrderItems 
+                foodCategory={foodCategory}
+                setFoodCategory={setFoodCategory}
+                switchStatus={switchStatus}
+                setSwitchStatus={setSwitchStatus}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                selectedDishesList={selectedDishesList}
+                setSelectedDishesList={setSelectedDishesList}
+                count={count}
+                setCount={setCount}
+                tabCategory={tabCategory}
+                setTabCategory={setTabCategory}
+              />
+            } 
+          />
         </Routes>
       </div>
     </Router>

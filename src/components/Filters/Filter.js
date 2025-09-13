@@ -5,7 +5,19 @@ import { useState, useEffect } from "react";
 import "./Filter.css"
 
 
-const Filter = ({setFoodCategory,setSwitchStatus,setSearchQuery,searchQuery,setCount,count,selectedDishesList,setTabCategory,tabCategory}) => {
+const Filter = ({
+  setFoodCategory,
+  setSwitchStatus,
+  setSearchQuery,
+  searchQuery,
+  setCount,
+  count,
+  selectedDishesList,
+  setTabCategory,
+  tabCategory,
+  isSummaryView = false,
+  maxItemsPerCategory = 8
+}) => {
 
     const [isOnGreenSwitch, setIsOnGreenSwitch] = useState(false);
     const [isOnRedSwitch, setIsOnRedSwitch] = useState(false);
@@ -75,9 +87,23 @@ const Filter = ({setFoodCategory,setSwitchStatus,setSearchQuery,searchQuery,setC
                 <CiSearch className="search-icon" />
             </div>
             <div className="filter-container">
-               {categories.map((category) => (
-                <button className={tabCategory === category ? "btn active" : "btn"} key={category} onClick={() => {setTabCategory(category)}}>{category} {count[category.toLowerCase()]}</button>
-               ))}
+               {categories.map((category) => {
+                const categoryKey = category.toLowerCase();
+                const itemCount = count[categoryKey] || 0;
+                const countText = isSummaryView 
+                  ? `${itemCount}/${maxItemsPerCategory}` 
+                  : itemCount;
+                  
+                return (
+                  <button 
+                    className={tabCategory === category ? "btn active" : "btn"} 
+                    key={category} 
+                    onClick={() => setTabCategory(category)}
+                  >
+                    {category} {itemCount > 0 ? `(${countText})` : ''}
+                  </button>
+                );
+              })}
             </div>
             <div className="selected-items-container">
                 <h3 className="selected-items-title">{tabCategory} Selected ({count[tabCategory?.toLowerCase()] || 0})</h3>

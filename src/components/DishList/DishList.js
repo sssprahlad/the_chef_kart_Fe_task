@@ -2,11 +2,17 @@ import "./DishList.css"
 import { useEffect, useState } from "react";
 import { dishes } from "../../data/mockDishes";
 import DishCard from "../DishCard/DishCard";
+import { useDispatch } from "react-redux";
+import { setSelectedDishesListGlobal } from "../../redux/reducer/user";
+import { useSelector } from "react-redux";
+
 
 const DishList = ({foodCategory,switchStatus,searchQuery,setSelectedDishesList,tabCategory,selectedDishesList}) => {
     const [dishesList, setDishesList] = useState([])
     const [selectedDishes, setSelectedDishes] = useState([])
-   
+    const dispatch = useDispatch();
+    const selectedDishesListGlobal = useSelector((state) => state.user.selectedDishesListGlobal);
+    console.log(selectedDishesListGlobal,"selectedDishesListGlobal")   
     
     console.log(foodCategory,"foodCategory")
     console.log(tabCategory,"tabCategory")
@@ -14,6 +20,7 @@ const DishList = ({foodCategory,switchStatus,searchQuery,setSelectedDishesList,t
     // console.log(searchQuery,"searchQuery")
     console.log(selectedDishesList,"selectedDishesList")
     console.log(dishesList,"dishesList")
+
 
     useEffect(() => {
         let filtered = dishes;
@@ -33,6 +40,7 @@ const DishList = ({foodCategory,switchStatus,searchQuery,setSelectedDishesList,t
 
       useEffect(() => {
         setSelectedDishesList(selectedDishes);
+        dispatch(setSelectedDishesListGlobal(selectedDishes));
       }, [selectedDishes, setSelectedDishesList]);
 
       useEffect(() => {
