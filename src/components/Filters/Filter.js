@@ -1,6 +1,9 @@
 import { CiSearch } from "react-icons/ci";
 import { FaAngleLeft } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { setSelectedDishesListGlobal } from "../../redux/reducer/user";
 
 import "./Filter.css"
 
@@ -23,6 +26,8 @@ const Filter = ({
     const [isOnRedSwitch, setIsOnRedSwitch] = useState(false);
     // const [tabCategory, setTabCategory] = useState([])
     console.log(count,"count")
+    const dispatch = useDispatch();
+    const selectedDishesListGlobal = useSelector((state) => state.user.selectedDishesListGlobal);
 
 
     const categories = ["Starter", "Main Course", "Desert", "Sides"];
@@ -74,6 +79,9 @@ const Filter = ({
       
         setCount(newCount);
       }, [selectedDishesList,setCount]);
+
+
+     
 
   
       
@@ -135,6 +143,7 @@ const Filter = ({
                         </div>
                     </label>
                 </div>
+                {/* <button className="btn" >Clear</button> */}
                 </div>
 
             </div>

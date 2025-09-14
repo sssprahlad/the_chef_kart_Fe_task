@@ -3,12 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import OrderItems from './components/OrderItems/OrderItems';
 import MainContainer from './components/MainContainer/MainContainer';
+import { useDispatch } from 'react-redux';
+import { setSelectedDishesListGlobal } from './redux/reducer/user';
 
 const App = () => {
   const [foodCategory, setFoodCategory] = useState('');
   const [switchStatus, setSwitchStatus] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDishesList, setSelectedDishesList] = useState([]);
+  const dispatch = useDispatch();
   const [count, setCount] = useState({
     starter: 0,
     "main course": 0,
@@ -22,6 +25,8 @@ const App = () => {
       setTabCategory("");
     }
   }, [selectedDishesList]);
+
+
 
   return (
     <Router>
