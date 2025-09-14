@@ -63,7 +63,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background:#494F55 ;
+    background-image: url(../../../public/images/background-img.png);
     border-radius: 8px;
     position: relative;
 }

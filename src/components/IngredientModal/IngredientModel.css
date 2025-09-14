@@ -1,1 +1,15 @@
 
+.ingredient-page{
+    padding: 20px;
+}
+
+.ingredient-page-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ingredient-text{
+   font-size:1rem;
+    margin: 0;
+    padding: 0;
+}

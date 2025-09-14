@@ -3,7 +3,9 @@ import { FaAngleLeft } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setSelectedDishesListGlobal } from "../../redux/reducer/user";
+import { setSelectedDishesListGlobal } from "../../redux/reducer/user"; 
+import { setUserLoggedIn } from "../../redux/reducer/user";
+import { useNavigate } from "react-router-dom";
 
 import "./Filter.css"
 
@@ -28,7 +30,7 @@ const Filter = ({
     console.log(count,"count")
     const dispatch = useDispatch();
     const selectedDishesListGlobal = useSelector((state) => state.user.selectedDishesListGlobal);
-
+    const navigate = useNavigate();
 
     const categories = ["Starter", "Main Course", "Desert", "Sides"];
 
@@ -82,7 +84,10 @@ const Filter = ({
 
 
      
-
+      const handleClear = () => {
+        dispatch(setUserLoggedIn(false));
+        navigate('/login');
+      };
   
       
 
@@ -143,7 +148,7 @@ const Filter = ({
                         </div>
                     </label>
                 </div>
-                {/* <button className="btn" >Clear</button> */}
+                <button className="btn" onClick={handleClear}>Logout</button>
                 </div>
 
             </div>

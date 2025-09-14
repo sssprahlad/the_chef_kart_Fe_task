@@ -1,21 +1,30 @@
 import { useState } from "react";
 import "./DishCard.css"
+import { dishes } from "../../data/mockDishes";
+import { useDispatch } from "react-redux";
+import {setSelectedDishesListGlobal} from "../../redux/reducer/user"
 
 const DishCard = ({ dish, selectedDishes, setSelectedDishes }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  
+  const dispatch = useDispatch();  
   const getShortDescription = (text) => {
     const words = text.split(' ');
     if (words.length <= 6) return text;
     return words.slice(0, 6).join(' ') + '...';
   };
 
-  const handleAddRemoveDish = () => {
+  const handleAddRemoveDish = (id) => {
     const isSelected = selectedDishes.some(item => item.id === dish.id);
-    const newSelectedDishes = isSelected
-      ? selectedDishes.filter(item => item.id !== dish.id)
-      : [...selectedDishes, dish];
+    let newSelectedDishes;
+
+    if (isSelected) {
+        newSelectedDishes = selectedDishes.filter(item => item.id !== dish.id);
+    } else {
+        newSelectedDishes = [...selectedDishes, { ...dish, quantity: 1 }];
+    }
     
+    
+    dispatch(setSelectedDishesListGlobal(newSelectedDishes));
     setSelectedDishes(newSelectedDishes);
   };
 
@@ -52,7 +61,7 @@ const DishCard = ({ dish, selectedDishes, setSelectedDishes }) => {
         </div>
         <button 
           className={isDishSelected ? "remove-btn" : "add-btn"} 
-          onClick={handleAddRemoveDish}
+          onClick={()=> handleAddRemoveDish(dish?.id)}
         >
           {isDishSelected ? "Remove" : "Add +"}
         </button>

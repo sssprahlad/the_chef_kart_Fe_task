@@ -5,6 +5,7 @@ export const dishes = [
       "type": "VEG",
       "description": "Paneer cubes in spicy onion gravy with onions and capsicum cubes.",
       "image": null,
+    
       "category": {
         "id": 1,
         "name": "North Indian",
@@ -17,7 +18,11 @@ export const dishes = [
       "nameHi": "",
       "nameBn": "",
       "id": 1,
-      "name": "Kadhai Paneer 1"
+      "name": "Kadhai Paneer 1",
+      "quantity": 0,
+      "ingredients": {  paneer: "150g", onion: "2 pcs", capsicum: "1 pc", tomato: "1 pc", img: "https://example.com/images/paneer.png" }
+
+      
     },
   
     // ------- STARTERS --------
@@ -37,7 +42,9 @@ export const dishes = [
       "forChefit": true,
       "forParty": true,
       "id": 11,
-      "name": "Chilli Paneer (Dry)"
+      "name": "Chilli Paneer (Dry)",
+      "quantity": 0,
+      "ingredients": {  Califlower: "150g", onion: "2 pcs", capsicum: "1 pc", tomato: "1 pc", img: "https://example.com/images/paneer.png" }
     },
     {
       "categoryId": 2,
@@ -48,14 +55,16 @@ export const dishes = [
       "category": {
         "id": 2,
         "name": "Mughlai",
-        "image": "https://storage.googleapis.com/chefkartimages/customer_app_assets/star_chef/mughlai.png",
+        "image": "https://th.bing.com/th/id/OIP.0GdTSfr1tFAY1xVoraAX6wHaF6?w=226&h=181&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3",
         "isRecommendedForMealSuggestion": true
       },
       "dishType": "GRILL",
       "forChefit": true,
       "forParty": true,
       "id": 12,
-      "name": "Chicken Tandoori"
+      "name": "Chicken Tandoori",
+      "quantity": 0,
+      "ingredients": {  chicken: "150g", onion: "2 pcs", capsicum: "1 pc", tomato: "1 pc", img: "https://th.bing.com/th/id/OIP.0GdTSfr1tFAY1xVoraAX6wHaF6?w=226&h=181&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3" }
     },
     {
       "categoryId": 2,
@@ -66,14 +75,16 @@ export const dishes = [
       "category": {
         "id": 2,
         "name": "Continental",
-        "image": "https://storage.googleapis.com/chefkartimages/customer_app_assets/star_chef/continental.png",
+        "image": "https://cdn.tasteatlas.com/images/social/733cd5be69a84534b648fca6ef98b2a2.jpg",
         "isRecommendedForMealSuggestion": true
       },
       "dishType": "SNACK",
       "forChefit": true,
       "forParty": true,
       "id": 13,
-      "name": "Peri Peri Fries"
+      "name": "Peri Peri Fries",
+      "quantity": 0,
+      "ingredients": { potato: "180g", flour: "peri-peri", capsicum: "1 pc", tomato: "1 pc", img: "https://cdn.tasteatlas.com/images/social/733cd5be69a84534b648fca6ef98b2a2.jpg" }
     },
   
     // ------- SIDES --------
@@ -86,14 +97,16 @@ export const dishes = [
       "category": {
         "id": 3,
         "name": "Indian Breads",
-        "image": "https://storage.googleapis.com/chefkartimages/customer_app_assets/star_chef/breads.png",
+        "image": "https://www.cookwithmanali.com/wp-content/uploads/2014/11/Soft-Homemade-Naan-1014x1536.jpg",
         "isRecommendedForMealSuggestion": true
       },
       "dishType": "BREAD",
       "forChefit": true,
       "forParty": true,
       "id": 14,
-      "name": "Butter Naan"
+      "name": "Butter Naan",
+      "quantity": 0,
+      "ingredients": { butter: "250g", flour: "150g", img: "https://www.cookwithmanali.com/wp-content/uploads/2014/11/Soft-Homemade-Naan-1014x1536.jpg" }
     },
     {
       "categoryId": 3,
@@ -104,14 +117,16 @@ export const dishes = [
       "category": {
         "id": 3,
         "name": "Indian",
-        "image": "https://storage.googleapis.com/chefkartimages/customer_app_assets/star_chef/north_indian.png",
+        "image": "https://mygoodfoodworld.com/wp-content/uploads/2022/07/Cucumber-raita.jpg",
         "isRecommendedForMealSuggestion": true
       },
       "dishType": "ACCOMPANIMENT",
       "forChefit": true,
       "forParty": true,
       "id": 15,
-      "name": "Cucumber Raita"
+      "name": "Cucumber Raita",
+      "quantity": 0,
+      "ingredients": { cucumber: "150g", onion: "2 pcs", capsicum: "1 pc", tomato: "1 pc", img: "https://mygoodfoodworld.com/wp-content/uploads/2022/07/Cucumber-raita.jpg" }
     },
   
     // ------- DESERTS --------
@@ -124,14 +139,16 @@ export const dishes = [
       "category": {
         "id": 4,
         "name": "Indian Sweets",
-        "image": "https://storage.googleapis.com/chefkartimages/customer_app_assets/star_chef/deserts.png",
+        "image": "https://1.bp.blogspot.com/-YGBSprsgs1c/XdDVy-pGurI/AAAAAAAAX64/uN_6FF2b6BIYgI2tzz3DXlWNvdlY_jZ_QCLcBGAsYHQ/s1600/gulab%2Bjamun%2B9.JPG",
         "isRecommendedForMealSuggestion": true
       },
       "dishType": "SWEET",
       "forChefit": true,
       "forParty": true,
       "id": 16,
-      "name": "Gulab Jamun"
+      "name": "Gulab Jamun",
+      "quantity": 0,
+      "ingredients": {  sugar: "350g", milk: "150g", flavor: "vanilla", img: "https://1.bp.blogspot.com/-YGBSprsgs1c/XdDVy-pGurI/AAAAAAAAX64/uN_6FF2b6BIYgI2tzz3DXlWNvdlY_jZ_QCLcBGAsYHQ/s1600/gulab%2Bjamun%2B9.JPG" }
     },
     {
       "categoryId": 4,
@@ -142,14 +159,16 @@ export const dishes = [
       "category": {
         "id": 4,
         "name": "Indian Sweets",
-        "image": "https://storage.googleapis.com/chefkartimages/customer_app_assets/star_chef/deserts.png",
+        "image": "https://kannanskitchen.com/wp-content/uploads/2021/04/DSC_4658.jpg",
         "isRecommendedForMealSuggestion": true
       },
       "dishType": "FROZEN",
       "forChefit": true,
       "forParty": true,
       "id": 17,
-      "name": "Kesar Pista Kulfi"
+      "name": "Kesar Pista Kulfi",
+      "quantity": 0,
+      "ingredients": { milk: "150g", onion: "2 pcs", capsicum: "1 pc", tomato: "1 pc", img: "https://kannanskitchen.com/wp-content/uploads/2021/04/DSC_4658.jpg" }
     },
   
     // ------- NON-VEG MAIN COURSE --------
@@ -162,14 +181,16 @@ export const dishes = [
       "category": {
         "id": 1,
         "name": "North Indian",
-        "image": "https://storage.googleapis.com/chefkartimages/customer_app_assets/star_chef/north_indian.png",
+        "image": "https://therealfooddietitians.com/wp-content/uploads/2022/10/Crockpot-Indian-Butter-Chicken-7-scaled.jpg",
         "isRecommendedForMealSuggestion": true
       },
       "dishType": "CURRY",
       "forChefit": true,
       "forParty": true,
       "id": 18,
-      "name": "Butter Chicken"
+      "name": "Butter Chicken",
+      "quantity": 0,
+      "ingredients": { chicken: "200g", onion: "2 pcs", capsicum: "1 pc", tomato: "1 pc", img: "https://therealfooddietitians.com/wp-content/uploads/2022/10/Crockpot-Indian-Butter-Chicken-7-scaled.jpg" }
     },
     {
       "categoryId": 1,
@@ -187,7 +208,9 @@ export const dishes = [
       "forChefit": true,
       "forParty": true,
       "id": 19,
-      "name": "Mutton Rogan Josh"
+      "name": "Mutton Rogan Josh",
+      "quantity": 0,
+      "ingredients": { mutton: "400g", onion: "8 pcs", capsicum: "1 pc", tomato: "1 pc", img: "https://example.com/images/paneer.png" }
     }
   ]
   

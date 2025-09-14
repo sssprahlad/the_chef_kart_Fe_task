@@ -1,0 +1,40 @@
+
+.quantity {
+    padding: 5px 10px;
+    color: #333;
+}
+.selected-items-container-order-items{
+    width: 100%;
+}
+
+.ingredient {
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.ingredient:hover {
+  color: #ff5252;
+  text-decoration: underline;
+}
+
+.ingredient::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  color: #ff6b6b;
+}
+.quantity-btn{
+    padding:5px 10px;
+    color: #333;
+}

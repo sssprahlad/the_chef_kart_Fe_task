@@ -44,7 +44,6 @@ const DishList = ({
     
     let filtered = [...dishes];
     
-    // Apply search filter if there's a search query
     if (searchQuery) {
       filtered = filtered.filter(dish =>
         dish.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -64,7 +63,6 @@ const DishList = ({
       const sourceList = selectedDishesList?.length > 0 ? selectedDishesList : dishes;
       filtered = sourceList.filter(dish => dish.type === foodCategory);
       
-      // Then apply tab category filter if a tab is selected
       if (tabCategory) {
           filtered = filtered.filter(dish => 
               dish.mealType === tabCategory.toUpperCase()
